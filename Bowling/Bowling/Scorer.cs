@@ -13,6 +13,13 @@ namespace Bowling
         internal void Throw(int pins)
         {
             _throws[_throwIndex] = pins;
+
+            if (pins == 10 && (_throwIndex == 0 || _throws[_throwIndex - 1] == 0)) // Strike
+            {
+                _throws[_throwIndex + 1] = 0;
+                _throwIndex++;
+            }
+
             _throwIndex++;
         }
 
@@ -25,18 +32,25 @@ namespace Bowling
 
                 for (int frame = 0; frame < 10; frame++)
                 {
-                  
-                    int scoreFrame = _throws[throwIndex] + _throws[throwIndex + 1];
 
-                    if (scoreFrame == 10) // Spare
+                    if (_throws[throwIndex] == 10) // Strike
                     {
-                        score += 10 + _throws[throwIndex + 2];
+                        score += 10 + _throws[throwIndex + 2] + _throws[throwIndex + 3];
                     }
                     else
                     {
-                        score += scoreFrame;
-                    }
+                        int scoreFrame = _throws[throwIndex] + _throws[throwIndex + 1];
 
+                        if (scoreFrame == 10) // Spare
+                        {
+                            score += 10 + _throws[throwIndex + 2];
+                        }
+                        else
+                        {
+                            score += scoreFrame;
+                        }    
+                    }
+                    
                     throwIndex += 2;
                 }
 
