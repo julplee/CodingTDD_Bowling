@@ -11,7 +11,7 @@ namespace Bowling
 
         internal void Throw(int pins)
         {
-            _score = pins;
+            _score += pins;
         }
 
         public object Score

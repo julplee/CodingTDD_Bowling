@@ -30,5 +30,17 @@ namespace Bowling
 
             Assert.AreEqual(5 + 2, scorer.Score);
         }
+
+        [Test]
+        public void Scorer_ThreeThrows_ThirdThrowIsInSecondFrame()
+        {
+            Scorer scorer = new Scorer();
+
+            scorer.Throw(5);
+            scorer.Throw(2);
+            scorer.Throw(3);
+
+            Assert.AreEqual(2, scorer.CurrentFrame);
+        }
     }
 }
