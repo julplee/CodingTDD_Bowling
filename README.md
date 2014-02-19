@@ -5,4 +5,4 @@ Coding a bowling scorer with TDD
 
 http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata
 
-![illustration](https://github.com/julplee/CodingTDD_Bowling/blob/master/Scores.jpg)
+![illustration](https://raw2.github.com/julplee/CodingTDD_Bowling/master/Scores.jpg)
