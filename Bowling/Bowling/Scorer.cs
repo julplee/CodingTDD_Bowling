@@ -7,19 +7,23 @@ namespace Bowling
 {
     class Scorer
     {
-        private int _score;
+        private int[] _throws = new int[21];
+        private int _throwIndex;
 
         internal void Throw(int pins)
         {
-            _score += pins;
+            _throws[_throwIndex] = pins;
+            _throwIndex++;
         }
 
         public object Score
         {
-            get
-            {
-                return _score;
-            }
+            get { return _throws.Sum(); }
+        }
+
+        public object CurrentFrame
+        {
+            get { return _throws.Length % 2 + 1; }
         }
     }
 }
