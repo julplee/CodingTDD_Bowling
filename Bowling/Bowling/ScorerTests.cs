@@ -19,5 +19,16 @@ namespace Bowling
 
             Assert.AreEqual(5, scorer.Score);
         }
+
+        [Test]
+        public void Scorer_TwoThrows_ScoreAdded()
+        {
+            Scorer scorer = new Scorer();
+
+            scorer.Throw(5);
+            scorer.Throw(2);
+
+            Assert.AreEqual(5 + 2, scorer.Score);
+        }
     }
 }
