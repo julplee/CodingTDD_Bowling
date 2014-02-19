@@ -7,11 +7,19 @@ namespace Bowling
 {
     class Scorer
     {
-        internal void Throw(int p)
+        private int _score;
+
+        internal void Throw(int pins)
         {
-            throw new NotImplementedException();
+            _score = pins;
         }
 
-        public object Score { get; set; }
+        public object Score
+        {
+            get
+            {
+                return _score;
+            }
+        }
     }
 }
