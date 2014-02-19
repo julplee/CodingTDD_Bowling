@@ -55,5 +55,17 @@ namespace Bowling
 
             Assert.AreEqual(10 + 3 + 3 + 2, scorer.Score);
         }
+
+        [Test]
+        public void Scorer_Strike_StrikeScoreBonus()
+        {
+            Scorer scorer = new Scorer();
+
+            scorer.Throw(10);
+            scorer.Throw(3);
+            scorer.Throw(2);
+
+            Assert.AreEqual(10 + 3 + 2 + 3 + 2, scorer.Score);
+        }
     }
 }
