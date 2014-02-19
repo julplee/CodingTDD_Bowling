@@ -42,5 +42,18 @@ namespace Bowling
 
             Assert.AreEqual(2, scorer.CurrentFrame);
         }
+
+        [Test]
+        public void Scorer_FourThrowsAndSpareInFirstFrame_SpareScoreBonus()
+        {
+            Scorer scorer = new Scorer();
+
+            scorer.Throw(5);
+            scorer.Throw(5);
+            scorer.Throw(3);
+            scorer.Throw(2);
+
+            Assert.AreEqual(10 + 3 + 3 + 2, scorer.Score);
+        }
     }
 }
